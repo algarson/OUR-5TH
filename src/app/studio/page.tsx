@@ -11,8 +11,8 @@ const memories = [
   },
   {
     imageSrc: "/images/UnI003.png",
-    title: "Your favorite kind of ordinary",
-    description: "The small moments that somehow became the big ones.",
+    title: "I look at this like we're already married",
+    description: "Our child will grow up with stories of us.",
     number: "02",
   },
 
