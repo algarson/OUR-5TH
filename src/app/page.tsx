@@ -1,16 +1,55 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import type { FormEvent } from "react";
 
 const DEMO_CODE = "1006";
+const ACCESS_GRANTED_KEY = "our-5th-studio-access";
+
+type AccessStatus = "checking" | "granted" | "locked" | "unavailable";
+
+function getAccessStatus(): Exclude<AccessStatus, "checking"> {
+  try {
+    return window.localStorage.getItem(ACCESS_GRANTED_KEY) === "true"
+      ? "granted"
+      : "locked";
+  } catch {
+    return "unavailable";
+  }
+}
+
+function subscribeToAccessStatus(callback: () => void) {
+  function handleStorageChange(event: StorageEvent) {
+    if (event.key === ACCESS_GRANTED_KEY || event.key === null) {
+      callback();
+    }
+  }
+
+  window.addEventListener("storage", handleStorageChange);
+  return () => window.removeEventListener("storage", handleStorageChange);
+}
+
+function getServerAccessStatus(): AccessStatus {
+  return "checking";
+}
 
 export default function Home() {
   const router = useRouter();
   const [code, setCode] = useState("");
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const accessStatus = useSyncExternalStore(
+    subscribeToAccessStatus,
+    getAccessStatus,
+    getServerAccessStatus,
+  );
+
+  useEffect(() => {
+    if (accessStatus === "granted") {
+      router.replace("/studio");
+    }
+  }, [accessStatus, router]);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -24,16 +63,29 @@ export default function Home() {
       setIsLoading(false);
 
       if (submittedCode === DEMO_CODE) {
-        router.push("/studio");
+        try {
+          window.localStorage.setItem(ACCESS_GRANTED_KEY, "true");
+          router.replace("/studio");
+        } catch {
+          setError("Could not remember access. Please enable browser storage and try again.");
+        }
       } else {
         setError("(¬_¬”). Try again.");
       }
     }, 1800);
   }
 
+  const visibleError =
+    error ||
+    (accessStatus === "unavailable"
+      ? "Browser storage is unavailable. Access can’t be remembered on this device."
+      : "");
+
   return (
     <main className="gate-page">
-      {isLoading ? (
+      {accessStatus === "checking" || accessStatus === "granted" ? (
+        <p role="status">Opening your keepsake...</p>
+      ) : isLoading ? (
         <div className="gate-loading" role="status" aria-live="polite">
           <video
             className="gate-loading-video"
@@ -60,7 +112,7 @@ export default function Home() {
           <label className="gate-label" htmlFor="access-code">
             Enter our number (˶˃ ᵕ ˂˶)
           </label>
-          <div className={`gate-input-wrap${error ? " gate-input-error" : ""}`}>
+          <div className={`gate-input-wrap${visibleError ? " gate-input-error" : ""}`}>
             <input
               autoComplete="off"
               id="access-code"
@@ -73,8 +125,8 @@ export default function Home() {
               type="text"
               value={code}
               maxLength={4}
-              aria-describedby={error ? "code-error" : undefined}
-              aria-invalid={Boolean(error)}
+              aria-describedby={visibleError ? "code-error" : undefined}
+              aria-invalid={Boolean(visibleError)}
             />
             <button type="submit" aria-label="Continue">
               <svg viewBox="0 0 20 20" aria-hidden="true">
@@ -82,9 +134,9 @@ export default function Home() {
               </svg>
             </button>
           </div>
-          {error && (
+          {visibleError && (
             <p className="gate-error" id="code-error" role="alert">
-              {error}
+              {visibleError}
             </p>
           )}
         </form>
