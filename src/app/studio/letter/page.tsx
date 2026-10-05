@@ -1,14 +1,11 @@
 import Link from "next/link";
 
 const letterParagraphs = [
-  "I meant to write to you sooner. There were a dozen small moments when I thought of it: the kettle beginning to sing, a letterbox clapping shut in the wind, the last stripe of sunlight slipping down the wall. Each time I told myself I would sit down when the day was quieter. I am beginning to understand that quiet days do not arrive on their own. We have to make a little room for them.",
-  "This morning, I took the long way to the shore. The tide was out, and the beach had that look it gets after a night of rain, all dark ribbons of seaweed and shining pools left between the stones. A dog ran ahead of its person, very serious about a piece of driftwood. I watched them until they became two small marks against the water, and for once I did not hurry after the next thought.",
-  "Do you remember the old blue house at the end of the lane? Someone has finally painted the door. It is yellow now, a bright, impossible yellow that makes the whole house look as if it has just remembered something good. There are pots of rosemary on the steps, and a bicycle leaning against the gate. I do not know who lives there, but I have decided they must be happy. It is a comforting thing, to imagine happiness waiting behind an ordinary door.",
-  "I have been keeping a list of things I want to tell you. It is written on the back of an envelope and tucked beneath the sugar bowl. The list is mostly unimportant: the bakery has started making plum cakes again; the clock in the station is still seven minutes slow; I found your old book on the shelf and there is a pressed flower between the pages. It has faded almost completely, but when I opened it, the room seemed to fill with the memory of that afternoon.",
-  "Perhaps that is what I miss most—not one particular day, but the way time seemed to open when we were together. We could spend an entire afternoon doing nothing worth mentioning and still come away with the feeling that something had happened. We would talk, then stop talking. We would notice the clouds. You always knew when silence was asking to be left alone, and when it was asking someone to stay.",
-  "I am learning that staying is its own kind of courage. It is easy to think a new beginning must be grand: a train pulled out of a station, a door flung open, a brave speech delivered at just the right moment. But most beginnings I have known were smaller. They were a cup set on the table for one more person. A curtain opened after a difficult week. A message written, erased, and written again until it finally sounded like the truth.",
-  "So here is the truth, as simply as I can put it: I am glad you are in the world. I am glad there are places that remind me of you, and songs that make the walk home feel shorter, and memories that still know how to surprise me. Whatever the distance between one day and the next, I carry more light than I did before I knew you.",
-  "The sun is going down now. From the window I can see the harbour lamps coming on, one by one, as if someone were carefully stitching the evening together. I will fold this letter before it gets too long, though I have already broken that promise. When you have a quiet moment, write back. Tell me something ordinary. Tell me what the light looked like where you were.",
+  "Hello my love, this is our 5th anniversary. 60 months, the day you let me in to your life, the day you trust me and the day you made the happiest guy in san juan city (lagi nalang kasi 'in the world  eh') I always remember this day where you finally chose me out of 3 candidates :> 11:42pm nakatingin ako sa phone ko, nakangiti, di ma alis yung excitement, di mapakali, dahil lang sa isang reply na 'na uto mo si thea e' I don't know if naalala mo pa yan. Pero guess what ako yung nauto mo.",
+  "Actually, you really did trick me, my love. Because the way I look at you now makes me feel like if beauty had a voice, it would probably sound like yours. I used to think the moon was beautiful, until I saw the way your eyes could steal the light from it. I used to believe poetry was something written in books, until your smile turned even the most ordinary moments into something worth remembering. They say perfection doesn't exist, and maybe they're right. But every time you laugh, it feels like the whole world forgets its own flaws for a moment.",
+  "And maybe that's what makes our love so special to me. It isn't because everything has always been perfect. We've been through so much times when we fought, times when things were difficult, moments when we didn't understand each other, and moments when we were happier than we could have ever imagined. But through all of those moments, through every high and every low, you're still the person I choose, every single day.",
+  "I've never experienced a love like this before. A love that, no matter how messed up things get, somehow makes me want to find my way back to you. There are moments when things feel difficult, but deep down, I know that I don't want to walk away. I want to understand, to fix things, to grow with you, and to keep choosing you.",
+  "And that's why I don't believe that we met by coincidence. I believe God placed you in my life for a reason. Maybe you were meant to be a blessing, maybe a lesson, or maybe both. Whatever the reason may be, I'm grateful that our paths crossed. Because out of all the people I could have met in this life, somehow, I found you and somehow, we found our way to each other.",
 ];
 
 export default function StudioPage() {
@@ -33,7 +30,7 @@ export default function StudioPage() {
           <header className="letter-header">
             <p className="letter-kicker">A LETTER FROM THE SHORE</p>
             <h1>The quiet things we carry</h1>
-            <p className="letter-date">A note for a slower afternoon</p>
+            <p className="letter-date">A little letter for the person who became home.</p>
             <div className="letter-rule" aria-hidden="true">
               <span />
             </div>
@@ -45,7 +42,7 @@ export default function StudioPage() {
               <p key={paragraph}>{paragraph}</p>
             ))}
             <p className="letter-signoff">Until the next quiet moment,</p>
-            <p className="letter-signature">Someone thinking of you</p>
+            <p className="letter-signature">The one who will always find his way back to you.</p>
           </div>
           <Link className="letter-back-link letter-end-link" href="/studio">
             <span aria-hidden="true">←</span> Read from the beginning
