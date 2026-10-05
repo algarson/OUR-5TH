@@ -11,7 +11,7 @@ type AccessStatus = "checking" | "granted" | "locked" | "unavailable";
 
 function getAccessStatus(): Exclude<AccessStatus, "checking"> {
   try {
-    return window.localStorage.getItem(ACCESS_GRANTED_KEY) === "true"
+    return window.sessionStorage.getItem(ACCESS_GRANTED_KEY) === "true"
       ? "granted"
       : "locked";
   } catch {
@@ -64,7 +64,7 @@ export default function Home() {
 
       if (submittedCode === DEMO_CODE) {
         try {
-          window.localStorage.setItem(ACCESS_GRANTED_KEY, "true");
+          window.sessionStorage.setItem(ACCESS_GRANTED_KEY, "true");
           router.replace("/studio");
         } catch {
           setError("Could not remember access. Please enable browser storage and try again.");
