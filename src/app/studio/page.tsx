@@ -1,27 +1,29 @@
+import Image from "next/image";
 import Link from "next/link";
 import { MusicControls } from "./music-player";
 
 const memories = [
   {
-    image: "memory-photo-one",
-    title: "The days that felt like ours",
-    description: "Little adventures, familiar places, and nowhere else to be.",
+    imageSrc: "/images/graduate001.png",
+    title: "A thousand things to remember",
+    description: "The small moments that somehow became the big ones.",
     number: "01",
   },
   {
-    image: "memory-photo-two",
+    imageSrc: "/images/UnI003.png",
     title: "Your favorite kind of ordinary",
     description: "The small moments that somehow became the big ones.",
     number: "02",
   },
+
   {
-    image: "memory-photo-three",
-    title: "A thousand things to remember",
-    description: "A few snapshots from all the stories we share.",
+    imageSrc: "/images/UnI007.png",
+    title: "The days that felt like ours",
+    description: "Little adventures, familiar places, and nowhere else to be.",
     number: "03",
   },
   {
-    image: "memory-photo-four",
+    imageSrc: "/images/hehe004.png",
     title: "Still my favorite view",
     description: "The best part was always getting to see it with you.",
     number: "04",
@@ -38,7 +40,7 @@ export default function StudioPage() {
           <p className="keepsake-kicker"><span /> A LITTLE COLLECTION OF US <span /></p>
           <h1>For all the days<br /><em>that became forever.</em></h1>
           <p className="keepsake-intro">
-            A few favorite things, saved here just for you.
+            Happy 5th Anniversary my love!
           </p>
           <span className="keepsake-flower" aria-hidden="true">✳</span>
         </header>
@@ -48,8 +50,8 @@ export default function StudioPage() {
             <span className="music-art-center" />
           </div>
           <div className="music-card-copy">
-            <p className="keepsake-section-label">SIDE A · PLAY OUR SONG</p>
-            <h2 id="music-title">A little soundtrack</h2>
+            <p className="keepsake-section-label">· PLAY MY SONG FOR MY BB</p>
+            <h2 id="music-title">BEFORE YOU</h2>
             <p>The song that can make anywhere feel a little like us.</p>
           </div>
           <MusicControls />
@@ -68,8 +70,18 @@ export default function StudioPage() {
           <div className="memory-grid">
             {memories.map((memory) => (
               <article className="memory-envelope" key={memory.number}>
-                <div className={`memory-photo ${memory.image}`} role="img" aria-label={`${memory.title} photo placeholder`}>
-                  <span className="photo-placeholder-label">ADD PHOTO {memory.number}</span>
+                <div className={`memory-photo ${memory.imageSrc ?? ""}`}>
+                  {memory.imageSrc ? (
+                    <Image
+                      src={memory.imageSrc}
+                      alt={memory.title}
+                      fill
+                      sizes="(max-width: 700px) 50vw, 25vw"
+                      className="memory-photo-image"
+                    />
+                  ) : (
+                    <span className="photo-placeholder-label">ADD PHOTO {memory.number}</span>
+                  )}
                   <span className="photo-corner" aria-hidden="true" />
                 </div>
                 <div className="memory-copy">
@@ -81,7 +93,7 @@ export default function StudioPage() {
               </article>
             ))}
           </div>
-          <p className="photo-note">Four little spaces waiting for your favorite photos.</p>
+          <p className="photo-note">My favorite photos.</p>
         </section>
 
         <section className="anniversary-card" aria-labelledby="anniversary-title">

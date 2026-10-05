@@ -17,16 +17,12 @@ export default function StudioPage() {
       <div className="letter-layout">
         <aside className="letter-photos letter-photos-left" aria-label="Decorative image placeholders">
           <figure className="letter-photo">
-            <div className="letter-photo-art photo-one">
-              <span>Add image</span>
-            </div>
-            <figcaption>PHOTO 01</figcaption>
+            <div className="letter-photo-art photo-one" role="img" aria-label="A photo from our memories" />
+            <figcaption>LATE NIGHT CALLS</figcaption>
           </figure>
           <figure className="letter-photo">
-            <div className="letter-photo-art photo-two">
-              <span>Add image</span>
-            </div>
-            <figcaption>PHOTO 02</figcaption>
+            <div className="letter-photo-art photo-two" role="img" aria-label="A photo from our memories" />
+            <figcaption>GALA</figcaption>
           </figure>
         </aside>
 
@@ -58,16 +54,12 @@ export default function StudioPage() {
 
         <aside className="letter-photos letter-photos-right" aria-label="Decorative image placeholders">
           <figure className="letter-photo">
-            <div className="letter-photo-art photo-three">
-              <span>Add image</span>
-            </div>
-            <figcaption>PHOTO 03</figcaption>
+            <div className="letter-photo-art photo-three" role="img" aria-label="A photo from our memories" />
+            <figcaption>ALWAYS YOURS IN EVERY UNIVERSE</figcaption>
           </figure>
           <figure className="letter-photo">
-            <div className="letter-photo-art photo-four">
-              <span>Add image</span>
-            </div>
-            <figcaption>PHOTO 04</figcaption>
+            <div className="letter-photo-art photo-four" role="img" aria-label="A photo from our memories" />
+            <figcaption>LAB THIS ANGLE</figcaption>
           </figure>
         </aside>
       </div>

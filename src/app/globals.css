@@ -1110,7 +1110,8 @@ input:focus-visible {
   overflow: hidden;
   padding: clamp(56px, 8vh, 88px) 28px 96px;
   background:
-    radial-gradient(ellipse at 50% 0%, rgba(255, 255, 255, 0.82), transparent 56%),
+    linear-gradient(rgba(246, 242, 233, 0.76), rgba(246, 242, 233, 0.76)),
+    url("/images/Uni002.png") center / cover fixed,
     #f6f2e9;
   color: #39352f;
 }
@@ -1179,31 +1180,18 @@ input:focus-visible {
 }
 
 .photo-one {
-  background-image:
-    linear-gradient(rgba(233, 224, 210, 0.22), rgba(233, 224, 210, 0.22)),
-    url("/images/letter-1.jpg"),
-    linear-gradient(155deg, #d9d4c3 0%, #b9c0b2 48%, #ddc5a2 100%);
+  background-image: url("/images/hehe001.png");
 }
-
 .photo-two {
-  background-image:
-    linear-gradient(rgba(233, 224, 210, 0.18), rgba(233, 224, 210, 0.18)),
-    url("/images/letter-2.jpg"),
-    linear-gradient(155deg, #dbd2c4 0%, #c9b5a1 48%, #e7d7bc 100%);
+  background-image: url("/images/hehe003.png");
 }
 
 .photo-three {
-  background-image:
-    linear-gradient(rgba(233, 224, 210, 0.18), rgba(233, 224, 210, 0.18)),
-    url("/images/letter-3.jpg"),
-    linear-gradient(155deg, #d8d8cc 0%, #b6c1bb 48%, #dbc8aa 100%);
+  background-image: url("/images/UnI004.png");
 }
 
 .photo-four {
-  background-image:
-    linear-gradient(rgba(233, 224, 210, 0.2), rgba(233, 224, 210, 0.2)),
-    url("/images/letter-4.jpg"),
-    linear-gradient(155deg, #d8d0c0 0%, #c8b8a7 48%, #e2d7c3 100%);
+  background-image: url("/images/UnI006.png");
 }
 
 .letter-photo-art span {
@@ -1720,6 +1708,10 @@ input:focus-visible {
   background-color: #e8dfd0;
   background-position: center;
   background-size: cover;
+}
+
+.memory-photo-image {
+  object-fit: cover;
 }
 
 .memory-photo-one {

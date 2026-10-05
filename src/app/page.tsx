@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import type { FormEvent } from "react";
 
-const DEMO_CODE = "1723";
+const DEMO_CODE = "1006";
 
 export default function Home() {
   const router = useRouter();
