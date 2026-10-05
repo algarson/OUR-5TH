@@ -8,6 +8,19 @@ The temporary demo code is `1723`. The code check is client-side and is
 only a UI flow, not secure authentication; use a server-side check before
 protecting private content or data.
 
+## Studio letter images
+
+The studio letter has four decorative image placeholders. Add images to
+`public/images/letter-1.jpg` through `public/images/letter-4.jpg` to fill
+them. The placeholder gradients remain visible until each image is added.
+
+The opening studio page also has four memory-card images. Add them as
+`public/images/memory-1.jpg` through `public/images/memory-4.jpg`.
+
+Add your audio file as `public/audio/letter-song.mp3`. The music controls stay
+available while scrolling and while moving between the opening page and letter.
+The control will show a message until that audio file exists.
+
 ## Getting started
 
 Use Node.js 20.9 or newer.
