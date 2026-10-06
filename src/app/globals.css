@@ -1111,7 +1111,7 @@ input:focus-visible {
   padding: clamp(56px, 8vh, 88px) 28px 96px;
   background:
     linear-gradient(rgba(246, 242, 233, 0.76), rgba(246, 242, 233, 0.76)),
-    url("/images/Uni002.png") center / cover fixed,
+    url("/images/UnI002.png") center / cover fixed,
     #f6f2e9;
   color: #39352f;
 }
